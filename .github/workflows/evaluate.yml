@@ -2,7 +2,7 @@ name: Teacher Evaluation
 on:
   pull_request_target:
     branches: [ main ]
-    types: [ opened, synchronize ]
+    types: [ opened, synchronize, reopened ]
 
 jobs:
   evaluate:
@@ -11,14 +11,12 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - name: Debug Secret
-        run: |
-          if [ -z "${{ secrets.JUDGE_ACCESS_TOKEN }}" ]; then
-            echo "ERROR: JUDGE_ACCESS_TOKEN is missing!"
-            exit 1
-          else
-            echo "JUDGE_ACCESS_TOKEN is present (masked)."
-          fi
+      - name: Checkout Base Gym Repo
+        uses: actions/checkout@v4
+        with:
+          repository: matcom/gym
+          path: gym-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout Student Code
         uses: actions/checkout@v4
@@ -54,9 +52,8 @@ jobs:
           # Run private tests using the grader and capture markdown output
           uv run python src/gymnasium/grader.py --student solutions/exercises --output-format markdown > ../evaluation_summary.md
           
-          # Update the leaderboard (scores.json and docs/leaderboard.md)
-          # Use the PR author's login as user ID
-          uv run python src/gymnasium/leaderboard.py --gym ../student-repo --user ${{ github.event.pull_request.user.login }} --report report.json
+          # Update the leaderboard in the gym-repo
+          uv run python src/gymnasium/leaderboard.py --gym ../gym-repo --user ${{ github.event.pull_request.user.login }} --report report.json
 
       - name: Post Comment on PR
         uses: actions/github-script@v7
@@ -73,7 +70,7 @@ jobs:
             })
 
       - name: Commit and Push Leaderboard Updates
-        working-directory: student-repo
+        working-directory: gym-repo
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
