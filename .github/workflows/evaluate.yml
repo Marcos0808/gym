@@ -50,9 +50,6 @@ jobs:
           # Use cp -r to copy all exercises from student repo
           cp -rv ../student-repo/exercises/* solutions/exercises/
           
-          # Generate test cases (idempotent)
-          uv run make generate
-          
           # Run private tests using the grader and capture markdown output
           uv run python src/gymnasium/grader.py --student solutions/exercises --output-format markdown > ../evaluation_summary.md
 
