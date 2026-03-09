@@ -1,7 +1,7 @@
 SUBMIT = False
 
 
-def fibonacci(n: int) -> int:  # noqa: ARG001
+def fibonacci(n: int) -> int:
     """Calculates the n-th Fibonacci number.
 
     Example usage:

@@ -1,7 +1,8 @@
 SUBMIT = False
 
 
-def palindrome(text: str) -> bool:  # noqa: ARG001
+def palindrome(_text: str) -> bool:
+    # noqa: ARG001
     """Checks if a string is a palindrome.
 
     Example usage:
