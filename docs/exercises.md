@@ -6,6 +6,6 @@ The following exercises are available in the Gymnasium.
 
 | Title | Complexity | Weight |
 | :--- | :---: | :---: |
-| [Hello World](../exercises/hello_world/README.md) | Easy | 5 |
-| [Fibonacci Numbers](../exercises/fibonacci/README.md) | Easy | 10 |
+| [Hello World](exercises/hello_world.md) | Easy | 5 |
+| [Fibonacci Numbers](exercises/fibonacci.md) | Easy | 10 |
 

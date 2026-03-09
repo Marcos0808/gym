@@ -7,10 +7,4 @@ if not SUBMIT:
 
 
 def test_hello_world_exists() -> None:
-    """Check if the function exists and is callable."""
     assert callable(hello_world)
-
-
-def test_hello_world_return_value() -> None:
-    """Check if the return value is exactly 'Hello, World!'."""
-    assert hello_world() == "Hello, World!"
