@@ -1,4 +1,4 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def sum_two_numbers(_a: int, _b: int) -> int:
