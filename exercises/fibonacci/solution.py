@@ -14,8 +14,20 @@ def fibonacci(n: int) -> int:
     >>> fibonacci(10)
     55
     """
-    return 0
-
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    num_1 = 0
+    num_2 = 1
+    var = 2
+    while var <= n:
+        num = num_1 + num_2
+        num_1 = num - num_1 
+        num_2 = num
+        var = var + 1
+    return num      
+        
 
 def test() -> None:
     """Simple self-test for Fibonacci."""
