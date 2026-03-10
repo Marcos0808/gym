@@ -1,4 +1,4 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def fibonacci(n: int) -> int:
