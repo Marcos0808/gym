@@ -17,7 +17,6 @@ def palindrome(_text: str) -> bool:
         char = _text[control]
         reverse = reverse + char
         control = control - 1
-        print(reverse)
     if reverse == _text:
         return True
     else :
