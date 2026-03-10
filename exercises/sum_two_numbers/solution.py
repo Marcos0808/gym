@@ -13,7 +13,8 @@ def sum_two_numbers(_a: int, _b: int) -> int:
     >>> sum_two_numbers(0, 0)
     0
     """
-    return 0
+    sum = _a + _b
+    return sum 
 
 
 def test() -> None:
