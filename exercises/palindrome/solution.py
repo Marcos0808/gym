@@ -1,4 +1,4 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def palindrome(_text: str) -> bool:
@@ -11,7 +11,17 @@ def palindrome(_text: str) -> bool:
     >>> palindrome("hello")
     False
     """
-    return False
+    control = len(_text) - 1
+    reverse = ""
+    while control >= 0 :
+        char = _text[control]
+        reverse = reverse + char
+        control = control - 1
+        print(reverse)
+    if reverse == _text:
+        return True
+    else :
+        return False
 
 
 def test() -> None:
