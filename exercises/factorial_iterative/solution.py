@@ -1,4 +1,4 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def factorial_iterative(_n: int) -> int:
@@ -11,7 +11,13 @@ def factorial_iterative(_n: int) -> int:
     >>> factorial_iterative(5)
     120
     """
-    return 0
+    if _n == 0:
+        return 1
+    fact = 1
+    while _n > 0:
+        fact = fact * _n
+        _n = _n - 1
+    return fact
 
 
 def test() -> None:
