@@ -1,11 +1,22 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def poly_evaluate(poly: list[int | float], x: int | float) -> int | float:
     """Evaluates a polynomial at a given value x using Horner's method."""
-    result = 0
-    for coeff in reversed(poly):
-        result = result * x + coeff
+    if not poly:
+        return 0
+    if not x:
+        return 0
+    max_list = len(poly) -  1
+    control_min = 0
+    control_max = max_list
+    result = poly[max_list]
+    while control_min < max_list:
+        var = poly[control_min]
+        result = result + (var)*(pow(x, control_max))
+        control_max = control_max - 1
+        control_min = control_min + 1
+    print(result)
     return result
 
 
