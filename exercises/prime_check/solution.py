@@ -1,4 +1,4 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def prime_check(_n: int) -> bool:
@@ -13,7 +13,15 @@ def prime_check(_n: int) -> bool:
     >>> prime_check(17)
     True
     """
-    return False
+    import math
+    if _n == 1 or _n == 0:
+        return False
+    control = math.sqrt(_n)
+    while control >= 1:
+        if _n % control == 0:
+            return False
+        control = control - 1
+    return True
 
 
 def test() -> None:
