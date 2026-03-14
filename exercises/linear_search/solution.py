@@ -1,4 +1,4 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def linear_search(_items: list[int], _target: int) -> int:
