@@ -12,7 +12,16 @@ def linear_search(_items: list[int], _target: int) -> int:
     >>> linear_search([], 5)
     -1
     """
-    return 0
+    if not _items:
+        return -1
+    max = len(_items) - 1
+    control = 0
+    while control <= max:
+        var = _items[control]
+        if var == _target:
+            return control
+        control = control + 1
+    return -1
 
 
 def test() -> None:
