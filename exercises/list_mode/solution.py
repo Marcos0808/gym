@@ -1,7 +1,6 @@
 from typing import Any
 
-SUBMIT = False
-
+SUBMIT = True
 
 def list_mode(_items: list[Any]) -> Any:
     """Returns the most frequent element in a list.
@@ -12,7 +11,28 @@ def list_mode(_items: list[Any]) -> Any:
     >>> list_mode(['a', 'b', 'a'])
     'a'
     """
-    return None
+    if not _items:
+        return None
+    control_1 = 0
+    
+    max_list = len(_items) - 1
+    moda = list()
+    while control_1 <= max_list:
+        num = 0
+        control_2 = 0
+        index_1 = _items[control_1]
+        while control_2 <= max_list:
+            index_2 = _items[control_2]
+            if index_1 == index_2:
+                num = num + 1
+            control_2 = control_2 + 1
+        control_1 = control_1 + 1
+        moda.append(num)
+    max_num = max(moda)
+    value = moda.index(max_num)
+    result = _items[value]
+    return result
+
 
 
 def test() -> None:
