@@ -1,4 +1,4 @@
-SUBMIT = False
+SUBMIT = True
 
 
 def min_max_list(_items: list[int]) -> tuple[int, int] | None:
@@ -12,7 +12,21 @@ def min_max_list(_items: list[int]) -> tuple[int, int] | None:
     >>> min_max_list([])
     None
     """
-    return (0, 0)
+    if not _items:
+        return None
+    max = len(_items) - 1
+    control = 0
+    num_max = _items[control]
+    num_min = _items[control]
+    while control <= max:
+        num_control = _items[control]
+        if num_control >= num_max:
+            num_max = num_control
+        if num_control <= num_min:
+            num_min = num_control
+        control = control + 1
+    return (num_min, num_max)
+
 
 
 def test() -> None:
